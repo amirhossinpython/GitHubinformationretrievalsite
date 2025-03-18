@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فعالیت‌های GitHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>فعالیت‌های GitHub برای {{ username }}</h1>
+        
+        <div class="stats">
+            <div>
+                <h2>📊 آمار GitHub</h2>
+                <iframe src="{{ stats_url }}" frameborder="0"></iframe>
+                <a href="{{ stats_url }}" download="stats.svg">دانلود آمار</a>
+            </div>
+            
+            <div>
+                <h2>🌐 زبان‌های برتر</h2>
+                <iframe src="{{ languages_url }}" frameborder="0"></iframe>
+                <a href="{{ languages_url }}" download="languages.svg">دانلود زبان‌ها</a>
+            </div>
+            
+            <div>
+                <h2>🐍 انیمیشن مار</h2>
+                <iframe src="{{ animation_url }}" frameborder="0"></iframe>
+                <a href="{{ animation_url }}" download="animation.svg">دانلود انیمیشن</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,34 +1,46 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فعالیت‌های GitHub</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>فعالیت‌های GitHub برای {{ username }}</h1>
+<!DOCTYPE html>  
+<html lang="fa" dir="rtl">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>فعالیت‌های GitHub</title>  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>فعالیت‌های GitHub برای {{ username }}</h1>  
         
-        <div class="stats">
-            <div>
-                <h2>📊 آمار GitHub</h2>
-                <iframe src="{{ stats_url }}" frameborder="0"></iframe>
-                <a href="{{ stats_url }}" download="stats.svg">دانلود آمار</a>
-            </div>
+ 
+        <h2>جزئیات کاربر:</h2>  
+        <p>نام کاربری: {{ user_info['login'] }}</p>  
+        <p>شناسه کاربر: {{ user_info['id'] }}</p>  
+        <p>آدرس پروفایل: <a href="{{ user_info['html_url'] }}" target="_blank">{{ user_info['html_url'] }}</a></p>  
+        <p><img src="{{ user_info['avatar_url'] }}" alt="تصویر پروفایل" width="100"></p>  
+        <p>تعداد دنبال‌کنندگان: {{ user_info['followers'] }}</p>  
+        <p>تعداد دنبال‌شوندگان: {{ user_info['following'] }}</p>  
+        <p>تعداد ریپوزیتوری‌های عمومی: {{ user_info['public_repos'] }}</p>  
+        <p>تاریخ عضویت: {{ user_info['created_at'] }}</p>  
+        <p>بیوگرافی: {{ user_info['bio'] if user_info['bio'] else 'ندارد' }}</p>  
+
+        <div class="stats">  
+            <div>  
+                <h2>📊 آمار GitHub</h2>  
+                <iframe src="{{ stats_url }}" frameborder="0"></iframe>  
+                <a href="{{ stats_url }}" download="stats.svg">دانلود آمار</a>  
+            </div>  
             
-            <div>
-                <h2>🌐 زبان‌های برتر</h2>
-                <iframe src="{{ languages_url }}" frameborder="0"></iframe>
-                <a href="{{ languages_url }}" download="languages.svg">دانلود زبان‌ها</a>
-            </div>
+            <div>  
+                <h2>🌐 زبان‌های برتر</h2>  
+                <iframe src="{{ languages_url }}" frameborder="0"></iframe>  
+                <a href="{{ languages_url }}" download="languages.svg">دانلود زبان‌ها</a>  
+            </div>  
             
-            <div>
-                <h2>🐍 انیمیشن مار</h2>
-                <iframe src="{{ animation_url }}" frameborder="0"></iframe>
-                <a href="{{ animation_url }}" download="animation.svg">دانلود انیمیشن</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+            <div>  
+                <h2>🐍 انیمیشن مار</h2>  
+                <iframe src="{{ animation_url }}" frameborder="0"></iframe>  
+                <a href="{{ animation_url }}" download="animation.svg">دانلود انیمیشن</a>  
+            </div>  
+        </div>  
+    </div>  
+</body>  
+</html>  
